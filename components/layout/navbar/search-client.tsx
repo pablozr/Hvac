@@ -2,8 +2,7 @@
 
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { useI18n } from 'lib/i18n/i18n-context';
-import { useSearchParams } from 'next/navigation';
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { FormEvent } from 'react';
 
 export default function SearchClient() {
@@ -37,10 +36,14 @@ export default function SearchClient() {
         placeholder={t('common.searchPlaceholder')}
         autoComplete="off"
         defaultValue={searchParams?.get('q') || ''}
-        className="w-full rounded-md border border-[#e0e0e0] bg-white px-4 py-2 text-[#333333] placeholder:text-[#666666] text-sm focus:border-[#0052cc] focus:ring-1 focus:ring-[#0052cc]"
+        className="w-full rounded-full border border-[#e0e0e0] bg-white px-5 py-2 text-[#333333] placeholder:text-[#666666] text-sm transition-all duration-200
+        focus:outline-none focus:border-[#0052cc] focus:shadow-[0_0_0_1px_#0052cc20] hover:border-[#0052cc]"
       />
-      <button type="submit" className="absolute right-0 top-0 h-full px-3 text-[#0052cc]">
-        <MagnifyingGlassIcon className="h-5 w-5" />
+      <button 
+        type="submit" 
+        className="absolute right-2 top-1/2 -translate-y-1/2 h-7 w-7 flex items-center justify-center text-[#666666] hover:text-[#0052cc] transition-colors"
+      >
+        <MagnifyingGlassIcon className="h-4 w-4" />
       </button>
     </form>
   );
@@ -53,10 +56,10 @@ export function SearchSkeleton() {
     <form className="w-full relative">
       <input
         placeholder={t('common.searchPlaceholder')}
-        className="w-full rounded-md border border-[#e0e0e0] bg-white px-4 py-2 text-[#333333] placeholder:text-[#666666] text-sm"
+        className="w-full rounded-full border border-[#e0e0e0] bg-white px-5 py-2 text-[#333333] placeholder:text-[#666666] text-sm"
       />
-      <div className="absolute right-0 top-0 h-full px-3 text-[#0052cc]">
-        <MagnifyingGlassIcon className="h-5 w-5" />
+      <div className="absolute right-2 top-1/2 -translate-y-1/2 h-7 w-7 flex items-center justify-center text-[#666666]">
+        <MagnifyingGlassIcon className="h-4 w-4" />
       </div>
     </form>
   );
