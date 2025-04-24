@@ -1,0 +1,91 @@
+{
+  "common": {
+    "search": "Search",
+    "searchPlaceholder": "Search for products...",
+    "allProducts": "All Products",
+    "promotions": "Promotions",
+    "login": "Login",
+    "contact": "Contact",
+    "addToCart": "Add to Cart",
+    "outOfStock": "Out of Stock",
+    "selectOption": "Select an Option"
+  },
+  "nav": {
+    "airConditioning": "Air Conditioning",
+    "commercialRefrigeration": "Commercial Refrigeration",
+    "partsComponents": "Parts & Components",
+    "tools": "Tools & Equipment"
+  },
+  "home": {
+    "featuredProducts": "Featured Products",
+    "popularProducts": "Popular Products",
+    "refrigerationSolutions": "Refrigeration Solutions",
+    "newsletter": {
+      "title": "Subscribe to our Newsletter",
+      "description": "Receive energy-saving tips, preventive maintenance advice, and exclusive offers on refrigeration products.",
+      "placeholder": "Your best email",
+      "button": "Subscribe",
+      "thanks": "Thank you for subscribing! You will soon receive our news."
+    }
+  },
+  "benefits": {
+    "professionalInstallation": {
+      "title": "Professional Installation",
+      "description": "Specialized technical team for installation and maintenance"
+    },
+    "extendedWarranty": {
+      "title": "Extended Warranty",
+      "description": "Up to 3 years warranty on selected products"
+    },
+    "bestValue": {
+      "title": "Best Value",
+      "description": "High energy efficiency products that save on electricity bills"
+    },
+    "technicalSupport": {
+      "title": "Specialized Technical Support",
+      "description": "Technical advice to choose the best system for your needs"
+    }
+  },
+  "categories": {
+    "airConditioning": "Air Conditioning",
+    "commercialRefrigeration": "Commercial Refrigeration",
+    "partsComponents": "Parts & Components",
+    "tools": "Tools & Equipment"
+  },
+  "footer": {
+    "about": "Specialists in refrigeration solutions for homes and businesses, offering high energy efficiency products and quality services.",
+    "quickLinks": "Quick Links",
+    "categories": "Categories",
+    "contact": "Contact",
+    "paymentMethods": "Payment Methods",
+    "security": "Security",
+    "allRightsReserved": "All rights reserved",
+    "developedBy": "Developed with ❤️ by HVAC Commerce"
+  },
+  "product": {
+    "reviews": "reviews",
+    "inStock": "In stock",
+    "outOfStock": "Out of stock",
+    "description": "Product Description",
+    "availableOptions": "Available Options",
+    "paymentInfo": "Payment Information",
+    "paymentDescription": "Pay in up to 12 installments on credit card or cash with 5% discount."
+  },
+  "banner": {
+    "slide1": {
+      "title": "High Efficiency Air Conditioning",
+      "subtitle": "Save up to 40% on your energy bill with our inverter models",
+      "button": "View Models"
+    },
+    "slide2": {
+      "title": "Commercial Refrigeration",
+      "subtitle": "Complete solutions for your business: freezers, cold rooms and display cases",
+      "button": "Commercial Solutions"
+    },
+    "slide3": {
+      "title": "Professional Installation",
+      "subtitle": "Specialized technical team to ensure the best performance of your equipment",
+      "button": "Learn More"
+    }
+  }
+}

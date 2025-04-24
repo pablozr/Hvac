@@ -1,0 +1,91 @@
+{
+  "common": {
+    "search": "Rechercher",
+    "searchPlaceholder": "Rechercher des produits...",
+    "allProducts": "Tous les produits",
+    "promotions": "Promotions",
+    "login": "Connexion",
+    "contact": "Contact",
+    "addToCart": "Ajouter au panier",
+    "outOfStock": "Rupture de stock",
+    "selectOption": "Sélectionnez une option"
+  },
+  "nav": {
+    "airConditioning": "Climatisation",
+    "commercialRefrigeration": "Réfrigération Commerciale",
+    "partsComponents": "Pièces et Composants",
+    "tools": "Outils et Équipements"
+  },
+  "home": {
+    "featuredProducts": "Produits en Vedette",
+    "popularProducts": "Produits Populaires",
+    "refrigerationSolutions": "Solutions de Réfrigération",
+    "newsletter": {
+      "title": "Inscrivez-vous à notre Newsletter",
+      "description": "Recevez des conseils d'économie d'énergie, de maintenance préventive et des offres exclusives sur les produits de réfrigération.",
+      "placeholder": "Votre meilleure adresse e-mail",
+      "button": "S'inscrire",
+      "thanks": "Merci de vous être inscrit! Vous recevrez bientôt nos actualités."
+    }
+  },
+  "benefits": {
+    "professionalInstallation": {
+      "title": "Installation Professionnelle",
+      "description": "Équipe technique spécialisée pour l'installation et la maintenance"
+    },
+    "extendedWarranty": {
+      "title": "Garantie Prolongée",
+      "description": "Jusqu'à 3 ans de garantie sur les produits sélectionnés"
+    },
+    "bestValue": {
+      "title": "Meilleur Rapport Qualité-Prix",
+      "description": "Produits à haute efficacité énergétique qui économisent sur la facture d'électricité"
+    },
+    "technicalSupport": {
+      "title": "Support Technique Spécialisé",
+      "description": "Conseil technique pour choisir le meilleur système selon vos besoins"
+    }
+  },
+  "categories": {
+    "airConditioning": "Climatisation",
+    "commercialRefrigeration": "Réfrigération Commerciale",
+    "partsComponents": "Pièces et Composants",
+    "tools": "Outils et Équipements"
+  },
+  "footer": {
+    "about": "Spécialistes des solutions de réfrigération pour les résidences et les entreprises, offrant des produits à haute efficacité énergétique et des services de qualité.",
+    "quickLinks": "Liens Rapides",
+    "categories": "Catégories",
+    "contact": "Contact",
+    "paymentMethods": "Méthodes de Paiement",
+    "security": "Sécurité",
+    "allRightsReserved": "Tous droits réservés",
+    "developedBy": "Développé avec ❤️ par HVAC Commerce"
+  },
+  "product": {
+    "reviews": "évaluations",
+    "inStock": "En stock",
+    "outOfStock": "Rupture de stock",
+    "description": "Description du Produit",
+    "availableOptions": "Options Disponibles",
+    "paymentInfo": "Informations de Paiement",
+    "paymentDescription": "Payez jusqu'à 12 fois par carte de crédit ou comptant avec 5% de réduction."
+  },
+  "banner": {
+    "slide1": {
+      "title": "Climatisation Haute Efficacité",
+      "subtitle": "Économisez jusqu'à 40% sur votre facture d'énergie avec nos modèles inverter",
+      "button": "Voir les Modèles"
+    },
+    "slide2": {
+      "title": "Réfrigération Commerciale",
+      "subtitle": "Solutions complètes pour votre entreprise: congélateurs, chambres froides et vitrines",
+      "button": "Solutions Commerciales"
+    },
+    "slide3": {
+      "title": "Installation Professionnelle",
+      "subtitle": "Équipe technique spécialisée pour garantir les meilleures performances de votre équipement",
+      "button": "En Savoir Plus"
+    }
+  }
+}

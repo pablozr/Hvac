@@ -1,19 +1,39 @@
 'use client';
 
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
-import Form from 'next/form';
+import { useI18n } from 'lib/i18n/i18n-context';
 import { useSearchParams } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
+import { FormEvent } from 'react';
 
-export default function Search() {
-  const searchParams = useSearchParams();
+export default function SearchClient() {
   const { t } = useI18n();
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const val = e.target as HTMLFormElement;
+    const search = val.search as HTMLInputElement;
+    const newParams = new URLSearchParams(searchParams.toString());
+
+    if (search.value) {
+      newParams.set('q', search.value);
+    } else {
+      newParams.delete('q');
+    }
+
+    router.push(`/search?${newParams.toString()}`);
+  };
 
   return (
-    <Form action="/search" className="w-full relative">
+    <form onSubmit={onSubmit} className="w-full relative">
       <input
         key={searchParams?.get('q')}
         type="text"
-        name="q"
+        name="search"
         placeholder={t('common.searchPlaceholder')}
         autoComplete="off"
         defaultValue={searchParams?.get('q') || ''}
@@ -22,13 +42,13 @@ export default function Search() {
       <button type="submit" className="absolute right-0 top-0 h-full px-3 text-[#0052cc]">
         <MagnifyingGlassIcon className="h-5 w-5" />
       </button>
-    </Form>
+    </form>
   );
 }
 
 export function SearchSkeleton() {
   const { t } = useI18n();
-
+  
   return (
     <form className="w-full relative">
       <input

@@ -1,6 +1,5 @@
 'use client';
 
-import { PlusIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import { addItem } from 'components/cart/actions';
 import { useProduct } from 'components/product/product-context';
@@ -16,13 +15,13 @@ function SubmitButton({
   selectedVariantId: string | undefined;
 }) {
   const buttonClasses =
-    'relative flex w-full items-center justify-center rounded-full bg-blue-600 p-4 tracking-wide text-white';
-  const disabledClasses = 'cursor-not-allowed opacity-60 hover:opacity-60';
+    'relative flex w-full items-center justify-center rounded-md bg-[#0052cc] py-3 px-6 font-medium text-white transition-colors';
+  const disabledClasses = 'cursor-not-allowed bg-[#cccccc] hover:bg-[#cccccc]';
 
   if (!availableForSale) {
     return (
       <button disabled className={clsx(buttonClasses, disabledClasses)}>
-        Out Of Stock
+        Produto Indisponível
       </button>
     );
   }
@@ -30,29 +29,29 @@ function SubmitButton({
   if (!selectedVariantId) {
     return (
       <button
-        aria-label="Please select an option"
+        aria-label="Selecione uma opção"
         disabled
         className={clsx(buttonClasses, disabledClasses)}
       >
         <div className="absolute left-0 ml-4">
-          <PlusIcon className="h-5" />
+          <ShoppingCartIcon className="h-5 w-5" />
         </div>
-        Add To Cart
+        Selecione uma Opção
       </button>
     );
   }
 
   return (
     <button
-      aria-label="Add to cart"
+      aria-label="Adicionar ao carrinho"
       className={clsx(buttonClasses, {
-        'hover:opacity-90': true
+        'hover:bg-[#003d99]': true
       })}
     >
       <div className="absolute left-0 ml-4">
-        <PlusIcon className="h-5" />
+        <ShoppingCartIcon className="h-5 w-5" />
       </div>
-      Add To Cart
+      Adicionar ao Carrinho
     </button>
   );
 }

@@ -1,12 +1,14 @@
 import { CartProvider } from 'components/cart/cart-context';
+import Footer from 'components/layout/footer';
 import { Navbar } from 'components/layout/navbar';
 import { WelcomeToast } from 'components/welcome-toast';
 import { GeistSans } from 'geist/font/sans';
+import { I18nProvider } from 'lib/i18n/i18n-context';
 import { getCart } from 'lib/shopify';
+import { baseUrl } from 'lib/utils';
 import { ReactNode } from 'react';
 import { Toaster } from 'sonner';
 import './globals.css';
-import { baseUrl } from 'lib/utils';
 
 const { SITE_NAME } = process.env;
 
@@ -31,16 +33,19 @@ export default async function RootLayout({
   const cart = getCart();
 
   return (
-    <html lang="en" className={GeistSans.variable}>
-      <body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
-        <CartProvider cartPromise={cart}>
-          <Navbar />
-          <main>
-            {children}
-            <Toaster closeButton />
-            <WelcomeToast />
-          </main>
-        </CartProvider>
+    <html lang="fr" className={GeistSans.variable}>
+      <body className="bg-white text-[#333333]">
+        <I18nProvider>
+          <CartProvider cartPromise={cart}>
+            <Navbar />
+            <main className="min-h-screen">
+              {children}
+              <Toaster closeButton />
+              <WelcomeToast />
+            </main>
+            <Footer />
+          </CartProvider>
+        </I18nProvider>
       </body>
     </html>
   );
