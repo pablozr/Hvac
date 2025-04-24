@@ -1,9 +1,9 @@
 import Link from 'next/link';
-
 import FooterMenu from 'components/layout/footer-menu';
 import LogoSquare from 'components/logo-square';
 import { getMenu } from 'lib/shopify';
 import { Suspense } from 'react';
+import { MapPinIcon, PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
 
 const { COMPANY_NAME, SITE_NAME } = process.env;
 

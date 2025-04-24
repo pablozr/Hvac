@@ -1,18 +1,18 @@
 'use client';
 
-import clsx from 'clsx';
+import { IconShoppingCart, IconX } from '@tabler/icons-react';
 import { Dialog, Transition } from '@headlessui/react';
-import { ShoppingCartIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Fragment, useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useCart } from './cart-context';
 import LoadingDots from 'components/loading-dots';
 import Price from 'components/price';
 import { DEFAULT_OPTION } from 'lib/constants';
 import { createUrl } from 'lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Fragment, useEffect, useRef, useState } from 'react';
 import { useFormStatus } from 'react-dom';
 import { createCartAndSetCookie, redirectToCheckout } from './actions';
-import { useCart } from './cart-context';
 import { DeleteItemButton } from './delete-item-button';
 import { EditItemQuantityButton } from './edit-item-quantity-button';
 import OpenCart from './open-cart';
@@ -27,6 +27,7 @@ export default function CartModal() {
   const quantityRef = useRef(cart?.totalQuantity);
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
+  const router = useRouter();
 
   useEffect(() => {
     if (!cart) {
@@ -49,8 +50,17 @@ export default function CartModal() {
 
   return (
     <>
-      <button aria-label="Open cart" onClick={openCart}>
-        <OpenCart quantity={cart?.totalQuantity} />
+      <button
+        aria-label="Open cart"
+        onClick={openCart}
+        className="relative cursor-pointer"
+      >
+        <IconShoppingCart stroke={1.5} size={24} />
+        {cart?.totalQuantity ? (
+          <div className="absolute -right-2 -top-2 h-4 w-4 rounded bg-[#0052cc] text-[10px] font-bold text-white flex items-center justify-center">
+            {cart.totalQuantity}
+          </div>
+        ) : null}
       </button>
       <Transition show={isOpen}>
         <Dialog onClose={closeCart} className="relative z-50">
@@ -78,13 +88,15 @@ export default function CartModal() {
               <div className="flex items-center justify-between">
                 <p className="text-lg font-semibold">My Cart</p>
                 <button aria-label="Close cart" onClick={closeCart}>
-                  <CloseCart />
+                  <div className="relative flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors dark:border-neutral-700 dark:text-white">
+                    <IconX className="h-6 transition-all ease-in-out hover:scale-110" />
+                  </div>
                 </button>
               </div>
 
               {!cart || cart.lines.length === 0 ? (
                 <div className="mt-20 flex w-full flex-col items-center justify-center overflow-hidden">
-                  <ShoppingCartIcon className="h-16" />
+                  <IconShoppingCart className="h-16" />
                   <p className="mt-6 text-center text-2xl font-bold">
                     Your cart is empty.
                   </p>
@@ -225,19 +237,6 @@ export default function CartModal() {
         </Dialog>
       </Transition>
     </>
-  );
-}
-
-function CloseCart({ className }: { className?: string }) {
-  return (
-    <div className="relative flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors dark:border-neutral-700 dark:text-white">
-      <XMarkIcon
-        className={clsx(
-          'h-6 transition-all ease-in-out hover:scale-110',
-          className
-        )}
-      />
-    </div>
   );
 }
 
