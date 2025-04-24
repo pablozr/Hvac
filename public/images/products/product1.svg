@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="600" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f0f0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0e0e0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#grad1)" />
+  <rect x="150" y="150" width="300" height="200" fill="#0052cc" />
+  <rect x="200" y="350" width="200" height="100" fill="#0052cc" />
+  <text x="300" y="300" font-family="Arial" font-size="24" text-anchor="middle" fill="#ffffff">Ar Condicionado Split</text>
+</svg>

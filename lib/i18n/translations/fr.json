@@ -14,7 +14,12 @@
     "airConditioning": "Climatisation",
     "commercialRefrigeration": "Réfrigération Commerciale",
     "partsComponents": "Pièces et Composants",
-    "tools": "Outils et Équipements"
+    "tools": "Outils et Équipements",
+    "about": "À Propos",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "terms": "Conditions Générales",
+    "privacy": "Politique de Confidentialité"
   },
   "home": {
     "featuredProducts": "Produits en Vedette",
@@ -70,6 +75,31 @@
     "availableOptions": "Options Disponibles",
     "paymentInfo": "Informations de Paiement",
     "paymentDescription": "Payez jusqu'à 12 fois par carte de crédit ou comptant avec 5% de réduction."
+  },
+  "search": {
+    "allProducts": "Tous les Produits",
+    "filters": "Filtres",
+    "categories": "Catégories",
+    "brands": "Marques",
+    "price": "Prix",
+    "availability": "Disponibilité",
+    "sortBy": "Trier par",
+    "clearAll": "Effacer tout",
+    "applyFilters": "Appliquer les filtres",
+    "noResults": "Aucun produit trouvé",
+    "tryDifferentFilters": "Essayez différents filtres ou parcourez toutes nos catégories",
+    "noResultsFor": "Aucun produit ne correspond à",
+    "showing": "Affichage de",
+    "results": "résultats",
+    "result": "résultat",
+    "for": "pour",
+    "sortOptions": {
+      "relevance": "Pertinence",
+      "price-asc": "Prix: Croissant",
+      "price-desc": "Prix: Décroissant",
+      "rating": "Évaluations",
+      "newest": "Plus récents"
+    }
   },
   "banner": {
     "slide1": {

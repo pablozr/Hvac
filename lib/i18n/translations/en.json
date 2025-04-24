@@ -14,7 +14,12 @@
     "airConditioning": "Air Conditioning",
     "commercialRefrigeration": "Commercial Refrigeration",
     "partsComponents": "Parts & Components",
-    "tools": "Tools & Equipment"
+    "tools": "Tools & Equipment",
+    "about": "About",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy"
   },
   "home": {
     "featuredProducts": "Featured Products",
@@ -70,6 +75,31 @@
     "availableOptions": "Available Options",
     "paymentInfo": "Payment Information",
     "paymentDescription": "Pay in up to 12 installments on credit card or cash with 5% discount."
+  },
+  "search": {
+    "allProducts": "All Products",
+    "filters": "Filters",
+    "categories": "Categories",
+    "brands": "Brands",
+    "price": "Price",
+    "availability": "Availability",
+    "sortBy": "Sort by",
+    "clearAll": "Clear all",
+    "applyFilters": "Apply filters",
+    "noResults": "No products found",
+    "tryDifferentFilters": "Try different filters or browse all our categories",
+    "noResultsFor": "There are no products that match",
+    "showing": "Showing",
+    "results": "results",
+    "result": "result",
+    "for": "for",
+    "sortOptions": {
+      "relevance": "Relevance",
+      "price-asc": "Price: Low to High",
+      "price-desc": "Price: High to Low",
+      "rating": "Rating",
+      "newest": "Newest"
+    }
   },
   "banner": {
     "slide1": {

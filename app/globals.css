@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import './scrollbar-hide.css';
 
 @plugin "@tailwindcss/container-queries";
 @plugin "@tailwindcss/typography";

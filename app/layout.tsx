@@ -1,5 +1,5 @@
 import { CartProvider } from 'components/cart/cart-context';
-import Footer from 'components/layout/footer';
+import FooterI18n from 'components/layout/footer-i18n';
 import { Navbar } from 'components/layout/navbar';
 import { WelcomeToast } from 'components/welcome-toast';
 import { GeistSans } from 'geist/font/sans';
@@ -18,9 +18,16 @@ export const metadata = {
     default: SITE_NAME!,
     template: `%s | ${SITE_NAME}`
   },
+  description: 'Especialistas em soluções de refrigeração para residências e empresas, oferecendo produtos de alta eficiência energética e serviços de qualidade.',
   robots: {
     follow: true,
     index: true
+  },
+  openGraph: {
+    type: 'website',
+    title: SITE_NAME!,
+    description: 'Especialistas em soluções de refrigeração para residências e empresas, oferecendo produtos de alta eficiência energética e serviços de qualidade.',
+    url: baseUrl
   }
 };
 
@@ -43,7 +50,7 @@ export default async function RootLayout({
               <Toaster closeButton />
               <WelcomeToast />
             </main>
-            <Footer />
+            <FooterI18n />
           </CartProvider>
         </I18nProvider>
       </body>

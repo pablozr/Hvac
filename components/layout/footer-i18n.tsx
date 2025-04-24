@@ -3,19 +3,16 @@
 import EnvelopeIcon from '@heroicons/react/24/outline/EnvelopeIcon';
 import MapPinIcon from '@heroicons/react/24/outline/MapPinIcon';
 import PhoneIcon from '@heroicons/react/24/outline/PhoneIcon';
-import FooterMenu from 'components/layout/footer-menu';
 import LogoSquare from 'components/logo-square';
-import { getMenu } from 'lib/shopify';
+import { useI18n } from 'lib/i18n/i18n-context';
 import Link from 'next/link';
-import { Suspense } from 'react';
 
 const { COMPANY_NAME, SITE_NAME } = process.env;
 
-export default function Footer() {
+export default function FooterI18n() {
+  const { t } = useI18n();
   const currentYear = new Date().getFullYear();
   const copyrightDate = 2023 + (currentYear > 2023 ? `-${currentYear}` : '');
-  const skeleton = 'w-full h-6 animate-pulse rounded-sm bg-neutral-200 dark:bg-neutral-700';
-  const menu = await getMenu('next-js-frontend-footer-menu');
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
 
   return (
@@ -30,7 +27,7 @@ export default function Footer() {
               <span className="text-xl font-bold text-[#0052cc]">{SITE_NAME}</span>
             </Link>
             <p className="text-sm text-[#666666] mb-4">
-              Especialistas em soluções de refrigeração para residências e empresas, oferecendo produtos de alta eficiência energética e serviços de qualidade.
+              {t('footer.about')}
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-[#0052cc] hover:text-[#003d99]">
@@ -53,53 +50,68 @@ export default function Footer() {
 
           {/* Coluna 2 - Links Rápidos */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-[#0052cc]">Links Rápidos</h3>
-            <Suspense
-              fallback={
-                <div className="flex flex-col gap-2">
-                  <div className={skeleton} />
-                  <div className={skeleton} />
-                  <div className={skeleton} />
-                  <div className={skeleton} />
-                </div>
-              }
-            >
-              <FooterMenu menu={menu} />
-            </Suspense>
+            <h3 className="text-lg font-semibold mb-4 text-[#0052cc]">{t('footer.quickLinks')}</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/about" className="text-[#666666] hover:text-[#0052cc]">
+                  {t('nav.about')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-[#666666] hover:text-[#0052cc]">
+                  {t('nav.contact')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="text-[#666666] hover:text-[#0052cc]">
+                  {t('nav.faq')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="text-[#666666] hover:text-[#0052cc]">
+                  {t('nav.terms')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy" className="text-[#666666] hover:text-[#0052cc]">
+                  {t('nav.privacy')}
+                </Link>
+              </li>
+            </ul>
           </div>
 
           {/* Coluna 3 - Categorias */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-[#0052cc]">Categorias</h3>
+            <h3 className="text-lg font-semibold mb-4 text-[#0052cc]">{t('footer.categories')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/search/ar-condicionado" className="text-[#666666] hover:text-[#0052cc]">
-                  Ar Condicionado
+                  {t('categories.airConditioning')}
                 </Link>
               </li>
               <li>
                 <Link href="/search/refrigeracao-comercial" className="text-[#666666] hover:text-[#0052cc]">
-                  Refrigeração Comercial
+                  {t('categories.commercialRefrigeration')}
                 </Link>
               </li>
               <li>
                 <Link href="/search/pecas-componentes" className="text-[#666666] hover:text-[#0052cc]">
-                  Peças e Componentes
+                  {t('categories.partsComponents')}
                 </Link>
               </li>
               <li>
                 <Link href="/search/ferramentas-equipamentos" className="text-[#666666] hover:text-[#0052cc]">
-                  Ferramentas e Equipamentos
+                  {t('categories.tools')}
                 </Link>
               </li>
               <li>
                 <Link href="/search/promocoes" className="text-[#666666] hover:text-[#0052cc]">
-                  Promoções
+                  {t('common.promotions')}
                 </Link>
               </li>
               <li>
                 <Link href="/search" className="text-[#666666] hover:text-[#0052cc]">
-                  Ver Todos
+                  {t('common.allProducts')}
                 </Link>
               </li>
             </ul>
@@ -107,7 +119,7 @@ export default function Footer() {
 
           {/* Coluna 4 - Contato */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-[#0052cc]">Contato</h3>
+            <h3 className="text-lg font-semibold mb-4 text-[#0052cc]">{t('footer.contact')}</h3>
             <ul className="space-y-3">
               <li className="flex items-start">
                 <MapPinIcon className="w-5 h-5 text-[#0052cc] mr-2 mt-0.5" />
@@ -131,7 +143,7 @@ export default function Footer() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
-              <h4 className="text-sm font-semibold mb-2">Formas de Pagamento</h4>
+              <h4 className="text-sm font-semibold mb-2">{t('footer.paymentMethods')}</h4>
               <div className="flex space-x-2">
                 <div className="w-10 h-6 bg-[#e0e0e0] rounded"></div>
                 <div className="w-10 h-6 bg-[#e0e0e0] rounded"></div>
@@ -140,7 +152,7 @@ export default function Footer() {
               </div>
             </div>
             <div>
-              <h4 className="text-sm font-semibold mb-2">Segurança</h4>
+              <h4 className="text-sm font-semibold mb-2">{t('footer.security')}</h4>
               <div className="flex space-x-2">
                 <div className="w-10 h-6 bg-[#e0e0e0] rounded"></div>
                 <div className="w-10 h-6 bg-[#e0e0e0] rounded"></div>
@@ -156,10 +168,10 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-[#666666]">
               &copy; {copyrightDate} {copyrightName}
-              {copyrightName.length && !copyrightName.endsWith('.') ? '.' : ''} Todos os direitos reservados.
+              {copyrightName.length && !copyrightName.endsWith('.') ? '.' : ''} {t('footer.allRightsReserved')}
             </p>
             <p className="text-sm text-[#666666] mt-2 md:mt-0">
-              Desenvolvido com ❤️ por HVAC Commerce
+              {t('footer.developedBy')}
             </p>
           </div>
         </div>

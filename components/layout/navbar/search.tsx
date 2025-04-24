@@ -1,6 +1,7 @@
 'use client';
 
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { useI18n } from 'lib/i18n/i18n-context';
 import Form from 'next/form';
 import { useSearchParams } from 'next/navigation';
 

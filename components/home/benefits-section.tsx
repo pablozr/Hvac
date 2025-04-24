@@ -1,6 +1,7 @@
 'use client';
 
 import { CurrencyDollarIcon, HeartIcon, ShieldCheckIcon, TruckIcon } from '@heroicons/react/24/outline';
+import { useI18n } from 'lib/i18n/i18n-context';
 
 interface Benefit {
   id: number;

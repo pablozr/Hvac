@@ -1,5 +1,6 @@
 'use client';
 
+import { useI18n } from 'lib/i18n/i18n-context';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -14,25 +15,25 @@ const categories: Category[] = [
   {
     id: 1,
     title: 'Ar Condicionado',
-    image: 'https://images.unsplash.com/photo-1581275233124-e1e5b9df5f9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+    image: 'https://picsum.photos/id/1070/600/400',
     link: '/search/ar-condicionado'
   },
   {
     id: 2,
     title: 'Refrigeração Comercial',
-    image: 'https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+    image: 'https://picsum.photos/id/1072/600/400',
     link: '/search/refrigeracao-comercial'
   },
   {
     id: 3,
     title: 'Peças e Componentes',
-    image: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+    image: 'https://picsum.photos/id/1073/600/400',
     link: '/search/pecas-componentes'
   },
   {
     id: 4,
     title: 'Ferramentas e Equipamentos',
-    image: 'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+    image: 'https://picsum.photos/id/1071/600/400',
     link: '/search/ferramentas-equipamentos'
   }
 ];

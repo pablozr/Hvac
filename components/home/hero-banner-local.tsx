@@ -1,5 +1,6 @@
 'use client';
 
+import { useI18n } from 'lib/i18n/i18n-context';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -19,7 +20,7 @@ const bannerSlides: BannerSlide[] = [
     subtitle: 'Economize até 40% na conta de energia com nossos modelos inverter',
     buttonText: 'Ver Modelos',
     buttonLink: '/search/ar-condicionado',
-    imageUrl: 'https://images.unsplash.com/photo-1581275233124-e1e5b9df5f9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
+    imageUrl: '/images/banners/banner1.png'
   },
   {
     id: 2,
@@ -27,7 +28,7 @@ const bannerSlides: BannerSlide[] = [
     subtitle: 'Soluções completas para seu negócio: freezers, câmaras frias e expositores',
     buttonText: 'Soluções Comerciais',
     buttonLink: '/search/refrigeracao-comercial',
-    imageUrl: 'https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
+    imageUrl: '/images/banners/banner2.png'
   },
   {
     id: 3,
@@ -35,7 +36,7 @@ const bannerSlides: BannerSlide[] = [
     subtitle: 'Equipe técnica especializada para garantir o melhor desempenho do seu equipamento',
     buttonText: 'Saiba Mais',
     buttonLink: '/servicos',
-    imageUrl: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80'
+    imageUrl: '/images/banners/seila2.webp'
   }
 ];
 
@@ -73,14 +74,19 @@ export function HeroBanner() {
           <div
             key={slide.id}
             className="min-w-full h-full relative flex-shrink-0"
-            style={{
-              backgroundImage: `url(${slide.imageUrl})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
-            }}
           >
-            <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-            <div className="absolute inset-0 flex flex-col justify-center items-start p-8 md:p-16 text-white">
+            {/* Background Image */}
+            <div className="absolute inset-0">
+              <img
+                src={slide.imageUrl}
+                alt={slide.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 "></div>
+            </div>
+            
+            {/* Content */}
+            <div className="absolute inset-0 flex flex-col justify-center items-start p-8 md:p-16 text-white z-10">
               <h1 className="text-3xl md:text-5xl font-bold mb-4">
                 {slide.id === 1 ? t('banner.slide1.title') :
                  slide.id === 2 ? t('banner.slide2.title') :
@@ -107,7 +113,7 @@ export function HeroBanner() {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-2 rounded-full"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-2 rounded-full z-20"
         aria-label="Previous slide"
       >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
@@ -116,7 +122,7 @@ export function HeroBanner() {
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-2 rounded-full"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white p-2 rounded-full z-20"
         aria-label="Next slide"
       >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
@@ -125,7 +131,7 @@ export function HeroBanner() {
       </button>
 
       {/* Indicators */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
         {bannerSlides.map((_, index) => (
           <button
             key={index}
