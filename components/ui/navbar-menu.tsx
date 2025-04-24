@@ -85,7 +85,8 @@ const NavbarMenuItem = ({
               backgroundColor: 'white',
               border: '1px solid #e0e0e0',
               borderRadius: '0.75rem',
-              boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
+              boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+              zIndex: 50
             }}
           >
             <div className="relative z-50 flex flex-col p-4 space-y-4">
