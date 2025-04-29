@@ -43,194 +43,103 @@ const bannerSlides: BannerSlide[] = [
 export function HeroBanner() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const bannerRef = useRef<HTMLDivElement>(null);
   const { t } = useI18n();
 
-  // Limpar o timer quando o componente for desmontado
-  useEffect(() => {
-    return () => {
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-      }
-    };
-  }, []);
-
-  // Configurar o Intersection Observer para detectar quando o banner está visível
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      {
-        root: null, // viewport
-        threshold: 0.3, // pelo menos 30% do elemento deve estar visível
-      }
-    );
-
-    if (bannerRef.current) {
-      observer.observe(bannerRef.current);
-    }
-
-    return () => {
-      if (bannerRef.current) {
-        observer.unobserve(bannerRef.current);
-      }
-    };
-  }, []);
-
-  // Iniciar o timer para mudar os slides automaticamente
-  const startTimer = useCallback(() => {
-    if (timerRef.current) {
-      clearInterval(timerRef.current);
-    }
-    
-    timerRef.current = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % bannerSlides.length);
-    }, 5000);
-  }, []);
-
-  // Pausar ou iniciar o timer com base na visibilidade
-  useEffect(() => {
-    if (isVisible) {
-      startTimer();
-    } else if (timerRef.current) {
-      clearInterval(timerRef.current);
-      timerRef.current = null;
-    }
-  }, [isVisible, startTimer]);
-
-  // Reiniciar o timer quando o slide mudar (apenas se estiver visível)
-  useEffect(() => {
-    if (isVisible) {
-      startTimer();
-    }
-  }, [currentSlide, startTimer, isVisible]);
-
-  // Função para ir para um slide específico
-  const goToSlide = useCallback((index: number) => {
-    if (isTransitioning || index === currentSlide) return;
-    
-    setIsTransitioning(true);
-    setCurrentSlide(index);
-    
-    // Desativar a transição após a animação terminar
-    setTimeout(() => {
-      setIsTransitioning(false);
-    }, 500);
-  }, [currentSlide, isTransitioning]);
-
-  // Função para ir para o próximo slide
-  const nextSlide = useCallback(() => {
-    if (isTransitioning) return;
-    
-    goToSlide((currentSlide + 1) % bannerSlides.length);
-  }, [currentSlide, goToSlide, isTransitioning]);
-
-  // Função para ir para o slide anterior
-  const prevSlide = useCallback(() => {
-    if (isTransitioning) return;
-    
-    goToSlide((currentSlide - 1 + bannerSlides.length) % bannerSlides.length);
-  }, [currentSlide, goToSlide, isTransitioning, bannerSlides.length]);
-
   return (
-    <div className="relative w-full h-[500px] overflow-hidden" ref={bannerRef}>
-      {/* Slides */}
-      <div className="w-full h-full">
-        {bannerSlides.map((slide, index) => (
-          <div
-            key={slide.id}
-            className={`absolute inset-0 w-full h-full transition-opacity duration-500 ease-in-out ${
-              index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
-            } ${slide.bgColor}`}
-          >
-            <div className="absolute inset-0 flex flex-col justify-center items-start p-8 md:p-16 text-white">
-              <h1 className="text-3xl md:text-5xl font-bold mb-4">
-                {slide.id === 1 ? t('banner.slide1.title') :
-                 slide.id === 2 ? t('banner.slide2.title') :
-                 t('banner.slide3.title')}
-              </h1>
-              <p className="text-lg md:text-xl mb-8 max-w-md">
-                {slide.id === 1 ? t('banner.slide1.subtitle') :
-                 slide.id === 2 ? t('banner.slide2.subtitle') :
-                 t('banner.slide3.subtitle')}
-              </p>
-              <Link
-                href={slide.buttonLink}
-                className="bg-white hover:bg-gray-100 text-blue-700 py-3 px-6 rounded-md font-medium transition-colors"
-              >
-                {slide.id === 1 ? t('banner.slide1.button') :
-                 slide.id === 2 ? t('banner.slide2.button') :
-                 t('banner.slide3.button')}
-              </Link>
-            </div>
-            
-            {/* Decorative elements */}
-            <div className="absolute right-10 top-1/2 transform -translate-y-1/2 hidden md:block">
-              {slide.id === 1 && (
-                <div className="w-64 h-64 rounded-full bg-blue-500 bg-opacity-20 flex items-center justify-center">
-                  <div className="w-48 h-48 rounded-full bg-blue-500 bg-opacity-30 flex items-center justify-center">
-                    <div className="w-32 h-32 rounded-full bg-blue-500 bg-opacity-40"></div>
-                  </div>
-                </div>
-              )}
-              {slide.id === 2 && (
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="w-24 h-24 rounded-lg bg-blue-500 bg-opacity-20"></div>
-                  <div className="w-24 h-24 rounded-lg bg-blue-500 bg-opacity-30"></div>
-                  <div className="w-24 h-24 rounded-lg bg-blue-500 bg-opacity-40"></div>
-                  <div className="w-24 h-24 rounded-lg bg-blue-500 bg-opacity-50"></div>
-                </div>
-              )}
-              {slide.id === 3 && (
-                <div className="flex flex-col space-y-4">
-                  <div className="w-64 h-8 rounded-full bg-blue-500 bg-opacity-20"></div>
-                  <div className="w-48 h-8 rounded-full bg-blue-500 bg-opacity-30"></div>
-                  <div className="w-32 h-8 rounded-full bg-blue-500 bg-opacity-40"></div>
-                </div>
-              )}
-            </div>
+    <div className="w-full h-[500px] flex gap-4 px-4 md:px-8">
+      {/* Banner fixo à esquerda */}
+      <div className="w-1/3 h-full bg-white rounded-2xl overflow-hidden shadow-lg">
+        <div className="h-full flex flex-col items-start justify-center p-8 bg-gradient-to-br from-[#00ff9d]/10 to-[#00ff9d]/5">
+          <h2 className="text-4xl font-bold text-[#1a2333] mb-4">
+            Approvisionnement<br />
+            <span className="text-[#00ff9d]">Pièces Détachées</span>
+          </h2>
+          <p className="text-gray-600 mb-6 text-lg">
+            Simplicité, facilité et rapidité : AIRCCO simplifie le quotidien des pros en quelques clics
+          </p>
+          <div className="mb-8">
+            <Image
+              src="/images/app-preview.png" // Substitua pelo caminho da sua imagem
+              alt="App Preview"
+              width={300}
+              height={600}
+              className="mx-auto"
+            />
           </div>
-        ))}
+          <button className="bg-[#1a2333] text-white px-8 py-3 rounded-full hover:bg-[#2a3343] transition-colors">
+            Découvrir le service →
+          </button>
+        </div>
       </div>
 
-      {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-30 hover:bg-opacity-50 text-white p-2 rounded-full z-20"
-        aria-label="Previous slide"
-        disabled={isTransitioning}
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-        </svg>
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-30 hover:bg-opacity-50 text-white p-2 rounded-full z-20"
-        aria-label="Next slide"
-        disabled={isTransitioning}
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-        </svg>
-      </button>
+      {/* Carrossel à direita */}
+      <div className="w-2/3 h-full relative rounded-2xl overflow-hidden">
+        <div className="w-full h-full">
+          {bannerSlides.map((slide, index) => (
+            <div
+              key={slide.id}
+              className={`absolute inset-0 w-full h-full transition-opacity duration-500 ease-in-out ${
+                index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
+              } ${slide.bgColor}`}
+            >
+              <div className="absolute inset-0 flex flex-col justify-center p-8 md:p-16 text-white">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="bg-white/20 px-4 py-1 rounded-full text-sm">
+                    Nouveauté
+                  </div>
+                </div>
+                <h1 className="text-3xl md:text-5xl font-bold mb-4">
+                  {t(`banner.slide${slide.id}.title`)}
+                </h1>
+                <p className="text-lg md:text-xl mb-8 max-w-md">
+                  {t(`banner.slide${slide.id}.subtitle`)}
+                </p>
+                <Link 
+                  href={slide.buttonLink}
+                  className="bg-white text-blue-700 px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition-colors w-fit"
+                >
+                  {t(`banner.slide${slide.id}.button`)}
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
 
-      {/* Indicators */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
-        {bannerSlides.map((_, index) => (
+        {/* Navegação do carrossel */}
+        <div className="absolute bottom-8 right-8 flex gap-2 z-20">
           <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full ${
-              index === currentSlide ? 'bg-white' : 'bg-white bg-opacity-50'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-            disabled={isTransitioning}
-          />
-        ))}
+            onClick={() => !isTransitioning && setCurrentSlide((prev) => (prev - 1 + bannerSlides.length) % bannerSlides.length)}
+            className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
+            aria-label="Previous slide"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 text-white">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+          <button
+            onClick={() => !isTransitioning && setCurrentSlide((prev) => (prev + 1) % bannerSlides.length)}
+            className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
+            aria-label="Next slide"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 text-white">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Indicadores do carrossel */}
+        <div className="absolute bottom-8 left-8 flex space-x-2 z-20">
+          {bannerSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => !isTransitioning && setCurrentSlide(index)}
+              className={`w-2 h-2 rounded-full transition-all ${
+                index === currentSlide ? 'w-8 bg-white' : 'bg-white/50'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
