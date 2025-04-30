@@ -8,7 +8,9 @@
     "contact": "Contact",
     "addToCart": "Add to Cart",
     "outOfStock": "Out of Stock",
-    "selectOption": "Select an Option"
+    "selectOption": "Select an Option",
+    "previous": "Previous",
+    "next": "Next"
   },
   "nav": {
     "airConditioning": "Air Conditioning",
@@ -66,7 +68,7 @@
     "Últimas unidades com super descontos": "Last units with super discounts"
   },
   "home": {
-    "featuredProducts": "Featured Products",
+    "topProducts": "Top Products",
     "popularProducts": "Popular Products",
     "refrigerationSolutions": "Refrigeration Solutions",
     "newsletter": {
@@ -161,5 +163,17 @@
       "subtitle": "Specialized technical team to ensure the best performance of your equipment",
       "button": "Learn More"
     }
+  },
+  "products": {
+    "wallMount": "Wall Mount Support 800 x 465 mm",
+    "miniAqua": "Mini Aqua Silencer",
+    "refrigerantLine": "Double Refrigerant Line 1/4",
+    "blowingGrid": "Double Blowing Grid Kit",
+    "drainPipe": "Condensate Drain Pipe",
+    "heatPump": "Air/Water Heat Pump",
+    "smartThermostat": "Smart WiFi Thermostat",
+    "installationKit": "Air Conditioning Installation Kit",
+    "leakDetector": "Gas Leak Detector",
+    "floorMount": "Floor Mount AC Support"
   }
 }

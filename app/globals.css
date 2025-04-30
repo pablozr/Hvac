@@ -11,7 +11,7 @@
   --color-text-primary: #333333;
   --color-text-secondary: #666666;
   --color-text-light: #ffffff;
-  --color-background-light: #ffffff;
+  --color-background-light: #fafdff;
   --color-background-dark: #f8f8f8;
   --color-background-accent: #e6f0ff;
   --color-border-light: #e0e0e0;
@@ -202,4 +202,16 @@ button {
 /* Animações suaves */
 .slide-transition {
   @apply transition-all duration-500 ease-in-out;
+}
+
+/* Estilos para o carrossel animado */
+@layer components {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
