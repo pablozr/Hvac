@@ -1,92 +1,202 @@
 'use client';
 
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { useI18n } from 'lib/i18n/i18n-context';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRef } from 'react';
 
-// Dados de demonstração para produtos em destaque
 const demoProducts = [
   {
     id: 1,
-    title: 'Ar Condicionado Split Inverter 12000 BTUs',
-    price: '2.499,00',
-    image: '/images/products/ar-condicionado-split.jpg',
-    link: '/product/ar-condicionado-split-inverter-12000'
+    title: 'Support mural 800 x 465 mm',
+    price: '149.90',
+    oldPrice: '159.90',
+    image: '/images/products/support-mural.png',
+    link: '/product/support-mural',
+    translationKey: 'products.wallMount'
   },
   {
     id: 2,
-    title: 'Geladeira Comercial 4 Portas Inox',
-    price: '5.890,00',
-    image: '/images/products/geladeira-comercial.jpg',
-    link: '/product/geladeira-comercial-4-portas'
+    title: 'Mini Aqua Silencer',
+    price: '91.93',
+    oldPrice: '89.73',
+    image: '/images/products/mini-aqua.png',
+    link: '/product/mini-aqua-silencer',
+    translationKey: 'products.miniAqua'
   },
   {
     id: 3,
-    title: 'Kit Ferramentas para Refrigeração',
-    price: '899,00',
-    image: '/images/products/kit-ferramentas.jpg',
-    link: '/product/kit-ferramentas-refrigeracao'
+    title: 'Liaison frigorifique double 1/4',
+    price: '92.10',
+    oldPrice: '89.10',
+    image: '/images/products/liaison.png',
+    link: '/product/liaison-frigorifique',
+    translationKey: 'products.refrigerantLine'
+  },
+  {
+    id: 4,
+    title: 'Kit Grille de soufflage double',
+    price: '22.64',
+    oldPrice: '21.84',
+    image: '/images/products/kit-grille.png',
+    link: '/product/kit-grille',
+    translationKey: 'products.blowingGrid'
+  },
+  {
+    id: 5,
+    title: 'Tuyau d\'évacuation condensats',
+    price: '14.90',
+    oldPrice: '16.90',
+    image: '/images/products/tuyau.png',
+    link: '/product/tuyau-evacuation',
+    translationKey: 'products.drainPipe'
+  },
+  {
+    id: 6,
+    title: 'Pompe à chaleur air/eau',
+    price: '2499.90',
+    oldPrice: '2699.90',
+    image: '/images/products/pompe-chaleur.png',
+    link: '/product/pompe-chaleur',
+    translationKey: 'products.heatPump'
+  },
+  {
+    id: 7,
+    title: 'Thermostat intelligent WiFi',
+    price: '129.90',
+    oldPrice: '149.90',
+    image: '/images/products/thermostat.png',
+    link: '/product/thermostat-wifi',
+    translationKey: 'products.smartThermostat'
+  },
+  {
+    id: 8,
+    title: 'Kit installation climatisation',
+    price: '199.90',
+    oldPrice: '219.90',
+    image: '/images/products/kit-installation.png',
+    link: '/product/kit-installation',
+    translationKey: 'products.installationKit'
+  },
+  {
+    id: 9,
+    title: 'Détecteur de fuite de gaz',
+    price: '79.90',
+    oldPrice: '89.90',
+    image: '/images/products/detecteur.png',
+    link: '/product/detecteur-fuite',
+    translationKey: 'products.leakDetector'
+  },
+  {
+    id: 10,
+    title: 'Support sol climatisation',
+    price: '45.90',
+    oldPrice: '49.90',
+    image: '/images/products/support-sol.png',
+    link: '/product/support-sol',
+    translationKey: 'products.floorMount'
   }
 ];
 
-interface ProductCardProps {
-  product: typeof demoProducts[0];
-  size: 'full' | 'half';
-}
-
-function ProductCard({ product, size }: ProductCardProps) {
-  return (
-    <div className={`${size === 'full' ? 'col-span-2 row-span-2' : 'col-span-1 row-span-1'} group`}>
-      <Link href={product.link} className="block h-full">
-        <div className="relative h-full overflow-hidden rounded-lg border border-[#e0e0e0] bg-white shadow-sm transition-all group-hover:shadow-md">
-          <div className="relative aspect-square w-full overflow-hidden">
-            <Image
-              src={product.image}
-              alt={product.title}
-              fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-              sizes={size === 'full' ? '(min-width: 768px) 66vw, 100vw' : '(min-width: 768px) 33vw, 100vw'}
-              priority={size === 'full'}
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 transition-opacity group-hover:opacity-100"></div>
-          </div>
-          <div className="p-4">
-            <h3 className="mb-2 text-lg font-medium text-[#333333] line-clamp-2">{product.title}</h3>
-            <div className="flex items-center justify-between">
-              <p className="text-lg font-bold text-[#0052cc]">R$ {product.price}</p>
-              <span className="rounded-md bg-[#0052cc] px-3 py-1 text-xs font-medium text-white">
-                Em destaque
-              </span>
-            </div>
-          </div>
-        </div>
-      </Link>
-    </div>
-  );
-}
-
 export function FeaturedProducts() {
   const { t } = useI18n();
+  const scrollContainer = useRef<HTMLDivElement>(null);
+
+  const scrollTo = (direction: 'left' | 'right') => {
+    const container = scrollContainer.current;
+    if (!container) return;
+
+    const scrollAmount = 304; // largura do card (280) + gap (24)
+    const maxScroll = container.scrollWidth - container.clientWidth;
+    const currentScroll = container.scrollLeft;
+    
+    let newScrollPosition;
+    
+    if (direction === 'right') {
+      if (currentScroll >= maxScroll - 10) {
+        newScrollPosition = 0;
+      } else {
+        newScrollPosition = currentScroll + scrollAmount;
+      }
+    } else {
+      if (currentScroll <= 10) {
+        newScrollPosition = maxScroll;
+      } else {
+        newScrollPosition = currentScroll - scrollAmount;
+      }
+    }
+
+    container.scrollTo({
+      left: newScrollPosition,
+      behavior: 'smooth'
+    });
+  };
 
   return (
-    <section className="py-12 bg-white">
+    <section className="py-12 bg-[#fafdff] overflow-hidden">
       <div className="container mx-auto px-4">
-        <h2 className="section-title text-center mb-8">{t('home.featuredProducts')}</h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <ProductCard product={demoProducts[0]} size="full" />
-          <ProductCard product={demoProducts[1]} size="half" />
-          <ProductCard product={demoProducts[2]} size="half" />
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-2xl font-bold text-[#1a2333]">
+            {t('home.topProducts')}
+            <div className="h-1 w-16 bg-[#0052cc] mt-2"></div>
+          </h2>
+          
+          <div className="flex gap-2">
+            <button
+              onClick={() => scrollTo('left')}
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-[#0052cc] hover:bg-[#003d99] transition-colors"
+            >
+              <ChevronLeftIcon className="h-5 w-5 text-white" />
+            </button>
+            <button
+              onClick={() => scrollTo('right')}
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-[#0052cc] hover:bg-[#003d99] transition-colors"
+            >
+              <ChevronRightIcon className="h-5 w-5 text-white" />
+            </button>
+          </div>
         </div>
 
-        {/* Botão "Ver todos os produtos" */}
-        <div className="mt-8 text-center">
-          <Link
-            href="/search"
-            className="inline-block px-6 py-3 bg-[#0052cc] text-white rounded-md font-medium hover:bg-[#003d99] transition-colors"
-          >
-            {t('common.allProducts')}
-          </Link>
+        <div 
+          ref={scrollContainer}
+          className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 scroll-smooth"
+        >
+          {demoProducts.map((product) => (
+            <div
+              key={product.id}
+              className="flex-none w-[280px]"
+            >
+              <Link href={product.link} className="block group">
+                <div className="bg-white rounded-lg border border-[#e0e0e0] p-4 transition-shadow hover:shadow-md">
+                  <div className="relative aspect-square mb-4 rounded-lg overflow-hidden bg-[#f5f5f5]">
+                    <Image
+                      src={product.image}
+                      alt={t(product.translationKey)}
+                      fill
+                      className="object-contain p-4"
+                      sizes="(max-width: 280px) 100vw, 280px"
+                    />
+                  </div>
+                  
+                  <h3 className="text-sm text-[#1a2333] font-medium mb-2 line-clamp-2">
+                    {t(product.translationKey)}
+                  </h3>
+                  
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-lg font-bold text-[#0052cc]">
+                      {product.price}€
+                    </span>
+                    {product.oldPrice && (
+                      <span className="text-sm text-[#666666] line-through">
+                        {product.oldPrice}€
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
     </section>

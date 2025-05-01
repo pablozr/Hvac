@@ -8,7 +8,9 @@
     "contact": "Contact",
     "addToCart": "Ajouter au panier",
     "outOfStock": "Rupture de stock",
-    "selectOption": "Sélectionnez une option"
+    "selectOption": "Sélectionnez une option",
+    "previous": "Précédent",
+    "next": "Suivant"
   },
   "nav": {
     "airConditioning": "Climatisation",
@@ -66,7 +68,7 @@
     "Últimas unidades com super descontos": "Dernières unités avec super remises"
   },
   "home": {
-    "featuredProducts": "Produits en Vedette",
+    "topProducts": "Top produits",
     "popularProducts": "Produits Populaires",
     "refrigerationSolutions": "Solutions de Réfrigération",
     "newsletter": {
@@ -161,5 +163,17 @@
       "subtitle": "Équipe technique spécialisée pour garantir les meilleures performances de votre équipement",
       "button": "En Savoir Plus"
     }
+  },
+  "products": {
+    "wallMount": "Support mural 800 x 465 mm",
+    "miniAqua": "Mini Aqua Silencer",
+    "refrigerantLine": "Liaison frigorifique double 1/4",
+    "blowingGrid": "Kit Grille de soufflage double",
+    "drainPipe": "Tuyau d'évacuation condensats",
+    "heatPump": "Pompe à chaleur air/eau",
+    "smartThermostat": "Thermostat intelligent WiFi",
+    "installationKit": "Kit installation climatisation",
+    "leakDetector": "Détecteur de fuite de gaz",
+    "floorMount": "Support sol climatisation"
   }
 }

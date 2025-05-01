@@ -11,7 +11,7 @@
   --color-text-primary: #333333;
   --color-text-secondary: #666666;
   --color-text-light: #ffffff;
-  --color-background-light: #ffffff;
+  --color-background-light: #fafdff;
   --color-background-dark: #f8f8f8;
   --color-background-accent: #e6f0ff;
   --color-border-light: #e0e0e0;
@@ -178,4 +178,40 @@ button {
 /* Adicione um backdrop blur quando o dropdown estiver aberto */
 .dropdown-backdrop {
   @apply fixed inset-0 bg-black/20 backdrop-blur-sm;
+}
+
+/* Estilos para o banner */
+.banner-container {
+  @apply relative overflow-hidden rounded-2xl shadow-xl;
+}
+
+.banner-slide {
+  @apply absolute inset-0 flex items-center justify-center;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.banner-content {
+  @apply relative z-10 text-white;
+}
+
+/* Efeito de gradiente para melhor legibilidade */
+.banner-overlay {
+  @apply absolute inset-0 bg-gradient-to-r from-black/50 to-transparent;
+}
+
+/* Animações suaves */
+.slide-transition {
+  @apply transition-all duration-500 ease-in-out;
+}
+
+/* Estilos para o carrossel animado */
+@layer components {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
