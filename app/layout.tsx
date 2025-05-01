@@ -19,6 +19,7 @@ export const metadata = {
     template: `%s | ${SITE_NAME}`
   },
   description: 'Especialistas em soluções de refrigeração para residências e empresas, oferecendo produtos de alta eficiência energética e serviços de qualidade.',
+  keywords: 'ar condicionado, refrigeração comercial, peças de refrigeração, ferramentas HVAC, climatização, refrigeração',
   robots: {
     follow: true,
     index: true
@@ -27,7 +28,23 @@ export const metadata = {
     type: 'website',
     title: SITE_NAME!,
     description: 'Especialistas em soluções de refrigeração para residências e empresas, oferecendo produtos de alta eficiência energética e serviços de qualidade.',
-    url: baseUrl
+    url: baseUrl,
+    siteName: SITE_NAME!,
+    images: [
+      {
+        url: `${baseUrl}/images/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'HVAC Commerce - Soluções em Refrigeração'
+      }
+    ],
+    locale: 'fr_FR'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_NAME!,
+    description: 'Especialistas em soluções de refrigeração para residências e empresas, oferecendo produtos de alta eficiência energética e serviços de qualidade.',
+    images: [`${baseUrl}/images/og-image.jpg`]
   }
 };
 

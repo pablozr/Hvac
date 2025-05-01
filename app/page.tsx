@@ -5,7 +5,7 @@ import { BrandsSection } from 'components/home/brands-section';
 import { CategorySection } from 'components/home/category-section';
 import { FeaturedProducts } from 'components/home/featured-products';
 import { HeroBanner } from 'components/home/hero-banner-local';
-import { NewsletterSection } from 'components/home/newsletter-section';
+import { NewsletterSection } from 'components/home/newsletter-section-improved';
 import { PopularProducts } from 'components/home/popular-products';
 import { TestimonialSection } from 'components/home/testimonial-section';
 import { useI18n } from 'lib/i18n/i18n-context';

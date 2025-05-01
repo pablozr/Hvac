@@ -15,25 +15,25 @@ const categories: Category[] = [
   {
     id: 1,
     title: 'Ar Condicionado',
-    image: 'https://picsum.photos/id/1070/600/400',
+    image: '/images/categories/ar-condicionado.jpg',
     link: '/search/ar-condicionado'
   },
   {
     id: 2,
     title: 'Refrigeração Comercial',
-    image: 'https://picsum.photos/id/1072/600/400',
+    image: '/images/categories/refrigeracao-comercial.jpg',
     link: '/search/refrigeracao-comercial'
   },
   {
     id: 3,
     title: 'Peças e Componentes',
-    image: 'https://picsum.photos/id/1073/600/400',
+    image: '/images/categories/pecas-componentes.jpg',
     link: '/search/pecas-componentes'
   },
   {
     id: 4,
     title: 'Ferramentas e Equipamentos',
-    image: 'https://picsum.photos/id/1071/600/400',
+    image: '/images/categories/ferramentas.jpg',
     link: '/search/ferramentas-equipamentos'
   }
 ];

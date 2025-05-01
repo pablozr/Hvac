@@ -11,42 +11,42 @@ const demoProducts = [
     id: 1,
     title: 'Ar Condicionado Split 9000 BTUs',
     price: '1.899,00',
-    image: 'https://picsum.photos/id/1081/600/600',
+    image: '/images/products/ar-condicionado-split-9000.jpg',
     link: '/product/ar-condicionado-split-9000'
   },
   {
     id: 2,
     title: 'Freezer Horizontal 400L',
     price: '3.290,00',
-    image: 'https://picsum.photos/id/1083/600/600',
+    image: '/images/products/freezer-horizontal.jpg',
     link: '/product/freezer-horizontal-400l'
   },
   {
     id: 3,
     title: 'Compressor de Ar 2HP',
     price: '1.250,00',
-    image: 'https://picsum.photos/id/1040/600/600',
+    image: '/images/products/compressor-ar.jpg',
     link: '/product/compressor-ar-2hp'
   },
   {
     id: 4,
     title: 'Expositor Refrigerado Vertical',
     price: '4.590,00',
-    image: 'https://picsum.photos/id/1084/600/600',
+    image: '/images/products/expositor-refrigerado.jpg',
     link: '/product/expositor-refrigerado-vertical'
   },
   {
     id: 5,
     title: 'Gás Refrigerante R410A',
     price: '590,00',
-    image: 'https://picsum.photos/id/1026/600/600',
+    image: '/images/products/gas-refrigerante.jpg',
     link: '/product/gas-refrigerante-r410a'
   },
   {
     id: 6,
     title: 'Ar Condicionado Portátil',
     price: '2.190,00',
-    image: 'https://picsum.photos/id/1082/600/600',
+    image: '/images/products/ar-condicionado-portatil.jpg',
     link: '/product/ar-condicionado-portatil'
   }
 ];

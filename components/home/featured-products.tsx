@@ -10,21 +10,21 @@ const demoProducts = [
     id: 1,
     title: 'Ar Condicionado Split Inverter 12000 BTUs',
     price: '2.499,00',
-    image: 'https://picsum.photos/id/1080/600/600',
+    image: '/images/products/ar-condicionado-split.jpg',
     link: '/product/ar-condicionado-split-inverter-12000'
   },
   {
     id: 2,
     title: 'Geladeira Comercial 4 Portas Inox',
     price: '5.890,00',
-    image: 'https://picsum.photos/id/1077/600/600',
+    image: '/images/products/geladeira-comercial.jpg',
     link: '/product/geladeira-comercial-4-portas'
   },
   {
     id: 3,
     title: 'Kit Ferramentas para Refrigeração',
     price: '899,00',
-    image: 'https://picsum.photos/id/1029/600/600',
+    image: '/images/products/kit-ferramentas.jpg',
     link: '/product/kit-ferramentas-refrigeracao'
   }
 ];

@@ -1,6 +1,6 @@
 'use client';
 
-import { IconUser, IconHeadset, IconShoppingCart } from '@tabler/icons-react';
+import { IconHeadset, IconUser } from '@tabler/icons-react';
 import CartModal from 'components/cart/modal';
 import LanguageSelector from 'components/layout/language-selector';
 import LogoSquare from 'components/logo-square';
@@ -159,7 +159,7 @@ export function NavbarClient({ menu, siteName }: { menu: Menu[]; siteName: strin
               <MobileMenu menu={menu} />
             </Suspense>
           </div>
-          
+
           <div className="flex items-center">
             <Link
               href="/"
@@ -172,46 +172,46 @@ export function NavbarClient({ menu, siteName }: { menu: Menu[]; siteName: strin
               </div>
             </Link>
           </div>
-          
+
           <div className="hidden md:flex flex-grow items-center gap-8">
             <div className="flex-grow">
               <Suspense fallback={<SearchSkeleton />}>
                 <Search />
               </Suspense>
             </div>
-            
+
             <div className="flex items-center">
               <div className="flex items-center gap-8">
-                <Link 
-                  href="/login" 
+                <Link
+                  href="/login"
                   className="flex flex-col items-center text-[#666666] hover:text-[#0052cc] text-center no-underline"
                 >
                   <IconUser stroke={1.5} size={24} />
                   <span className="text-xs mt-1 no-underline">{t('common.login')}</span>
                 </Link>
-                
-                <Link 
-                  href="/contato" 
+
+                <Link
+                  href="/contato"
                   className="flex flex-col items-center text-[#666666] hover:text-[#0052cc] text-center no-underline"
                 >
                   <IconHeadset stroke={1.5} size={24} />
                   <span className="text-xs mt-1 no-underline">{t('common.contact')}</span>
                 </Link>
-                
+
                 <div className="flex flex-col items-center text-[#666666] hover:text-[#0052cc] text-center cursor-pointer">
                   <CartModal />
-                  <span className="text-xs mt-1">Panier</span>
+                  <span className="text-xs mt-1">{t('common.cart')}</span>
                 </div>
               </div>
 
               <div className="border-l border-[#e0e0e0] h-8 mx-8" />
-              
+
               <LanguageSelector />
             </div>
           </div>
         </div>
       </nav>
-      
+
       {/* Barra de categorias com o novo menu */}
       <div className="bg-white border-b border-[#e0e0e0] hidden md:block shadow-[inset_0_10px_8px_-10px_rgba(0,0,0,0.1)]">
         <div className="container mx-auto px-8">
