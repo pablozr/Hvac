@@ -12,137 +12,68 @@ import { Suspense } from 'react';
 import MobileMenu from './navbar/mobile-menu';
 import Search, { SearchSkeleton } from './navbar/search';
 
+// Definição das categorias principais e suas subcategorias
 const navigationItems = [
   {
-    title: "Todos os Produtos",
-    href: "/search",
+    title: "Outillage",
+    href: "/search/outillage",
     items: [
       {
-        title: "Lançamentos",
-        href: "/search/lancamentos",
-        description: "Conheça nossos produtos mais recentes"
+        title: "Appareil de mesure",
+        href: "/search/outillage/appareil-de-mesure",
+        description: "Appareils de mesure pour les professionnels"
       },
       {
-        title: "Mais Vendidos",
-        href: "/search/mais-vendidos",
-        description: "Os produtos favoritos dos nossos clientes"
+        title: "Outillage frigoriste",
+        href: "/search/outillage/outillage-frigoriste",
+        description: "Outils spécialisés pour les techniciens frigoristes"
       },
       {
-        title: "Ofertas",
-        href: "/search/ofertas",
-        description: "Produtos com descontos especiais"
+        title: "Outillage à main",
+        href: "/search/outillage/outillage-a-main",
+        description: "Outils à main pour l'installation et maintenance"
+      },
+      {
+        title: "Vérification annuelle",
+        href: "/search/outillage/verification-annuelle",
+        description: "Équipements pour la vérification annuelle"
+      },
+      {
+        title: "Outillage general",
+        href: "/search/outillage/outillage-general",
+        description: "Outils généraux pour les professionnels"
+      },
+      {
+        title: "Nouveautés REFCO",
+        href: "/search/outillage/nouveautes-refco",
+        description: "Nouveaux outils REFCO pour les professionnels"
+      },
+      {
+        title: "Nouveautés MAXIMA",
+        href: "/search/outillage/nouveautes-maxima",
+        description: "Les dernières innovations MAXIMA"
       }
     ]
   },
   {
-    title: "Ar Condicionado",
-    href: "/search/ar-condicionado",
-    items: [
-      {
-        title: "Split",
-        href: "/search/ar-condicionado/split",
-        description: "Sistemas split para residências e comércio"
-      },
-      {
-        title: "Janela",
-        href: "/search/ar-condicionado/janela",
-        description: "Ar condicionado tradicional de janela"
-      },
-      {
-        title: "Portátil",
-        href: "/search/ar-condicionado/portatil",
-        description: "Soluções móveis de climatização"
-      },
-      {
-        title: "Multi Split",
-        href: "/search/ar-condicionado/multi-split",
-        description: "Sistemas com múltiplas unidades internas"
-      }
-    ]
+    title: "Liaisons frigorifiques",
+    href: "/search/liaisons-frigorifiques",
+    items: []
   },
   {
-    title: "Refrigeração Comercial",
-    href: "/search/refrigeracao-comercial",
-    items: [
-      {
-        title: "Expositores",
-        href: "/search/refrigeracao-comercial/expositores",
-        description: "Expositores refrigerados verticais e horizontais"
-      },
-      {
-        title: "Balcões",
-        href: "/search/refrigeracao-comercial/balcoes",
-        description: "Balcões refrigerados para comércio"
-      },
-      {
-        title: "Câmaras Frigoríficas",
-        href: "/search/refrigeracao-comercial/camaras",
-        description: "Câmaras modulares e monoblocos"
-      }
-    ]
+    title: "Univers de la PAC et ECS",
+    href: "/search/univers-pac-ecs",
+    items: []
   },
   {
-    title: "Peças e Componentes",
-    href: "/search/pecas-componentes",
-    items: [
-      {
-        title: "Compressores",
-        href: "/search/pecas-componentes/compressores",
-        description: "Compressores para diversos sistemas"
-      },
-      {
-        title: "Condensadores",
-        href: "/search/pecas-componentes/condensadores",
-        description: "Unidades condensadoras completas"
-      },
-      {
-        title: "Evaporadores",
-        href: "/search/pecas-componentes/evaporadores",
-        description: "Evaporadores e forçadores de ar"
-      }
-    ]
-  },
-  {
-    title: "Ferramentas",
-    href: "/search/ferramentas-equipamentos",
-    items: [
-      {
-        title: "Manifolds",
-        href: "/search/ferramentas-equipamentos/manifolds",
-        description: "Conjuntos manométricos digitais e analógicos"
-      },
-      {
-        title: "Vacuômetros",
-        href: "/search/ferramentas-equipamentos/vacuometros",
-        description: "Medidores de vácuo eletrônicos"
-      },
-      {
-        title: "Recolhedoras",
-        href: "/search/ferramentas-equipamentos/recolhedoras",
-        description: "Recolhedoras de fluido refrigerante"
-      }
-    ]
+    title: "Climatisation, ventilation et déshumidification",
+    href: "/search/climatisation-ventilation",
+    items: []
   },
   {
     title: "Promoções",
     href: "/search/promocoes",
-    items: [
-      {
-        title: "Promoções da Semana",
-        href: "/search/promocoes/semana",
-        description: "Ofertas especiais desta semana"
-      },
-      {
-        title: "Ofertas do Mês",
-        href: "/search/promocoes/mes",
-        description: "Descontos válidos por todo o mês"
-      },
-      {
-        title: "Clearance",
-        href: "/search/promocoes/clearance",
-        description: "Últimas unidades com super descontos"
-      }
-    ]
+    items: []
   }
 ];
 

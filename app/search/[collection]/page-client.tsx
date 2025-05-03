@@ -9,30 +9,68 @@ import { useCallback, useEffect, useState } from 'react';
 
 // Mapeamento de coleções para títulos e descrições
 const collectionInfo = {
-  'ar-condicionado': {
-    title: 'Ar Condicionado',
-    description: 'Encontre os melhores sistemas de ar condicionado para sua casa ou empresa. Oferecemos modelos split, inverter, janela e portátil com alta eficiência energética.',
-    i18nKey: 'airConditioning'
-  },
-  'refrigeracao-comercial': {
-    title: 'Refrigeração Comercial',
-    description: 'Soluções completas de refrigeração para seu negócio: freezers, câmaras frias, expositores e muito mais. Equipamentos de alta qualidade e durabilidade.',
-    i18nKey: 'commercialRefrigeration'
-  },
-  'pecas-componentes': {
-    title: 'Peças e Componentes',
-    description: 'Peças e componentes originais para manutenção e reparo de sistemas de refrigeração e ar condicionado. Garantia de qualidade e compatibilidade.',
-    i18nKey: 'partsComponents'
-  },
-  'ferramentas-equipamentos': {
-    title: 'Ferramentas e Equipamentos',
-    description: 'Ferramentas profissionais e equipamentos especializados para instalação, manutenção e reparo de sistemas de refrigeração e ar condicionado.',
+  'outillage': {
+    title: 'Outillage',
+    description: 'Outils professionnels pour l\'installation et la maintenance des systèmes de climatisation et réfrigération.',
     i18nKey: 'tools'
   },
-  'promocoes': {
-    title: 'Promoções',
-    description: 'Aproveite nossas ofertas especiais em produtos de refrigeração e ar condicionado. Preços imperdíveis e condições especiais de pagamento.',
-    i18nKey: 'promotions'
+  'liaisons-frigorifiques': {
+    title: 'Liaisons frigorifiques',
+    description: 'Liaisons frigorifiques et accessoires pour connecter les unités intérieures et extérieures de vos climatiseurs.',
+    i18nKey: 'refrigerationConnections'
+  },
+  'univers-pac-ecs': {
+    title: 'Univers de la PAC et ECS',
+    description: 'Pompes à chaleur et systèmes d\'eau chaude sanitaire pour votre maison.',
+    i18nKey: 'heatPumpDHW'
+  },
+  'climatisation-ventilation': {
+    title: 'Climatisation, ventilation et déshumidification',
+    description: 'Systèmes de climatisation, ventilation et déshumidification pour un confort optimal.',
+    i18nKey: 'airConditioningVentilation'
+  },
+  // Subcategorias de Outillage
+  'outillage/appareil-de-mesure': {
+    title: 'Appareil de mesure',
+    description: 'Appareils de mesure pour les professionnels de la climatisation et réfrigération.',
+    i18nKey: 'measurementDevice',
+    parentCategory: 'outillage'
+  },
+  'outillage/outillage-frigoriste': {
+    title: 'Outillage frigoriste',
+    description: 'Outils spécialisés pour les techniciens frigoristes.',
+    i18nKey: 'refrigerationTools',
+    parentCategory: 'outillage'
+  },
+  'outillage/outillage-a-main': {
+    title: 'Outillage à main',
+    description: 'Outils à main pour l\'installation et la maintenance des systèmes de climatisation.',
+    i18nKey: 'handTools',
+    parentCategory: 'outillage'
+  },
+  'outillage/verification-annuelle': {
+    title: 'Vérification annuelle',
+    description: 'Équipements pour la vérification annuelle des systèmes de climatisation et réfrigération.',
+    i18nKey: 'annualVerification',
+    parentCategory: 'outillage'
+  },
+  'outillage/outillage-general': {
+    title: 'Outillage',
+    description: 'Outils généraux pour les professionnels de la climatisation et réfrigération.',
+    i18nKey: 'generalTools',
+    parentCategory: 'outillage'
+  },
+  'outillage/nouveautes-refco': {
+    title: 'Nouveautés REFCO',
+    description: 'Découvrez les nouveaux outils REFCO pour les professionnels de la climatisation.',
+    i18nKey: 'refcoNews',
+    parentCategory: 'outillage'
+  },
+  'outillage/nouveautes-maxima': {
+    title: 'Nouveautés MAXIMA',
+    description: 'Les dernières innovations MAXIMA pour les professionnels de la climatisation.',
+    i18nKey: 'maximaNews',
+    parentCategory: 'outillage'
   }
 };
 
@@ -101,7 +139,26 @@ export default function CollectionClient({ collection, products, title, descript
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const collectionData = collectionInfo[collection as keyof typeof collectionInfo] || {
+  // Verifica se a coleção é uma subcategoria (contém '/')
+  const isSubcategory = collection.includes('/');
+  let collectionKey = collection;
+
+  // Se for uma subcategoria, extrai a categoria pai e a subcategoria
+  if (isSubcategory) {
+    const parts = collection.split('/');
+    if (parts.length >= 2) {
+      // Tenta usar a chave da subcategoria para o mapeamento
+      const subcategory = parts[1];
+      collectionKey = subcategory;
+
+      // Se não encontrar com a subcategoria, tenta com o caminho completo
+      if (!collectionInfo[collectionKey as keyof typeof collectionInfo]) {
+        collectionKey = collection;
+      }
+    }
+  }
+
+  const collectionData = collectionInfo[collectionKey as keyof typeof collectionInfo] || {
     title: title || 'Coleção',
     description: description || 'Produtos desta coleção',
     i18nKey: ''
@@ -395,8 +452,8 @@ export default function CollectionClient({ collection, products, title, descript
                                   <svg
                                     key={i}
                                     className={`w-4 h-4 ${
-                                      i < Math.floor(product.rating) ? 'text-yellow-400' : 'text-gray-300'
-                                    } ${i === Math.floor(product.rating) && product.rating % 1 > 0 ? 'text-yellow-400' : ''}`}
+                                      i < Math.floor(product.rating || 0) ? 'text-yellow-400' : 'text-gray-300'
+                                    } ${i === Math.floor(product.rating || 0) && (product.rating || 0) % 1 > 0 ? 'text-yellow-400' : ''}`}
                                     fill="currentColor"
                                     viewBox="0 0 20 20"
                                   >

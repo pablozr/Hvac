@@ -19,7 +19,7 @@ export default function FooterI18n() {
     <footer className="bg-[#f8f8f8] text-[#333333] border-t border-[#e0e0e0]">
       {/* Seção principal do footer */}
       <div className="container mx-auto py-12 px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Coluna 1 - Sobre */}
           <div>
             <Link className="flex items-center gap-2 mb-4" href="/">
@@ -85,33 +85,65 @@ export default function FooterI18n() {
             <h3 className="text-lg font-semibold mb-4 text-[#0052cc]">{t('footer.categories')}</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/search/ar-condicionado" className="text-[#666666] hover:text-[#0052cc]">
-                  {t('categories.airConditioning')}
-                </Link>
-              </li>
-              <li>
-                <Link href="/search/refrigeracao-comercial" className="text-[#666666] hover:text-[#0052cc]">
-                  {t('categories.commercialRefrigeration')}
-                </Link>
-              </li>
-              <li>
-                <Link href="/search/pecas-componentes" className="text-[#666666] hover:text-[#0052cc]">
-                  {t('categories.partsComponents')}
-                </Link>
-              </li>
-              <li>
-                <Link href="/search/ferramentas-equipamentos" className="text-[#666666] hover:text-[#0052cc]">
+                <Link href="/search/outillage" className="text-[#666666] hover:text-[#0052cc]">
                   {t('categories.tools')}
                 </Link>
               </li>
               <li>
-                <Link href="/search/promocoes" className="text-[#666666] hover:text-[#0052cc]">
-                  {t('common.promotions')}
+                <Link href="/search/liaisons-frigorifiques" className="text-[#666666] hover:text-[#0052cc]">
+                  {t('categories.refrigerationConnections')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/search/univers-pac-ecs" className="text-[#666666] hover:text-[#0052cc]">
+                  {t('categories.heatPumpDHW')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/search/climatisation-ventilation" className="text-[#666666] hover:text-[#0052cc]">
+                  {t('categories.airConditioningVentilation')}
                 </Link>
               </li>
               <li>
                 <Link href="/search" className="text-[#666666] hover:text-[#0052cc]">
                   {t('common.allProducts')}
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Coluna 3.1 - Subcategorias de Outillage */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-[#0052cc] md:mt-0 mt-8">{t('categories.toolsSubcategories')}</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/search/outillage/appareil-de-mesure" className="text-[#666666] hover:text-[#0052cc]">
+                  {t('categories.measurementDevice')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/search/outillage/outillage-frigoriste" className="text-[#666666] hover:text-[#0052cc]">
+                  {t('categories.refrigerationTools')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/search/outillage/outillage-a-main" className="text-[#666666] hover:text-[#0052cc]">
+                  {t('categories.handTools')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/search/outillage/verification-annuelle" className="text-[#666666] hover:text-[#0052cc]">
+                  {t('categories.annualVerification')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/search/outillage/nouveautes-refco" className="text-[#666666] hover:text-[#0052cc]">
+                  {t('categories.refcoNews')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/search/outillage/nouveautes-maxima" className="text-[#666666] hover:text-[#0052cc]">
+                  {t('categories.maximaNews')}
                 </Link>
               </li>
             </ul>

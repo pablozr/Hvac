@@ -1,8 +1,8 @@
 'use client';
 
 import { useI18n } from 'lib/i18n/i18n-context';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 interface BannerSlide {
@@ -72,11 +72,11 @@ export function HeroBanner() {
           <div className="h-full flex flex-col p-12">
             <div className="mb-8">
               <h2 className="text-5xl mb-4">
-                <span className="text-[#00d67d] font-bold">APPROVISIONNEMENT</span><br />
-                <span className="text-[#1a2333] font-bold">PIÈCES DÉTACHÉES</span>
+                <span className="text-[#00d67d] font-bold">{t('banner.fixed.title1')}</span><br />
+                <span className="text-[#1a2333] font-bold">{t('banner.fixed.title2')}</span>
               </h2>
               <p className="text-gray-600 text-lg">
-                Simplicité, facilité et rapidité : AIRCCO simplifie le quotidien des pros <span className="text-[#00d67d]">en quelques clics</span>
+                {t('banner.fixed.subtitle')}
               </p>
             </div>
 
@@ -95,17 +95,13 @@ export function HeroBanner() {
             <div className="mt-auto">
               <div className="bg-[#12234d] text-white p-8 rounded-xl">
                 <p className="mb-4">
-                  <span className="text-white font-semibold">Nous </span>
-                  <span className="text-[#00d67d] font-semibold">trouvons </span>
-                  <span className="text-white font-semibold">votre pièce détachée clim et chauffage</span>
+                  <span className="text-white font-semibold">{t('banner.fixed.text1')}</span>
                 </p>
                 <p className="mb-6">
-                  <span className="text-white font-semibold">et nous la </span>
-                  <span className="text-[#00d67d] font-semibold">livrons sur votre chantier</span>
-                  <span className="text-white font-semibold">!</span>
+                  <span className="text-white font-semibold">{t('banner.fixed.text2')}</span>
                 </p>
                 <button className="bg-[#00d67d] text-white px-6 py-3 rounded-full hover:bg-[#00bf6f] transition-colors text-sm font-medium">
-                  Découvrir le service
+                  {t('banner.fixed.button')}
                 </button>
               </div>
             </div>
@@ -132,12 +128,12 @@ export function HeroBanner() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"></div>
                 </div>
-                
+
                 {/* Content */}
                 <div className="absolute inset-0 flex flex-col justify-center p-8 text-white z-10">
                   <div className="flex items-center gap-2 mb-4">
                     <div className="bg-white/20 px-4 py-1 rounded-full text-sm">
-                      Nouveauté
+                      {t('banner.fixed.new')}
                     </div>
                   </div>
                   <h1 className="text-2xl md:text-3xl font-bold mb-4">

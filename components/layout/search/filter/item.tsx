@@ -2,6 +2,7 @@
 
 import clsx from 'clsx';
 import type { SortFilterItem } from 'lib/constants';
+import { useI18n } from 'lib/i18n/i18n-context';
 import { createUrl } from 'lib/utils';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
@@ -13,8 +14,35 @@ function PathFilterItem({ item }: { item: PathFilterItem }) {
   const active = pathname === item.path;
   const newParams = new URLSearchParams(searchParams.toString());
   const DynamicTag = active ? 'p' : Link;
+  const { t } = useI18n();
 
   newParams.delete('q');
+
+  // Função para traduzir o título da categoria
+  const getTranslatedTitle = (title: string) => {
+    // Ignorar o título "Collections" e "Hidden:"
+    if (title === "Collections" || title.startsWith("Hidden:")) {
+      return title;
+    }
+
+    // Traduzir os títulos das categorias
+    const translationMap: Record<string, string> = {
+      "Appareil de mesure": "nav.Appareil de mesure",
+      "Climatisation, ventilation et déshumidification": "nav.Climatisation, ventilation et déshumidification",
+      "Liaisons frigorifiques": "nav.Liaisons frigorifiques",
+      "Nouveautés MAXIMA": "nav.Nouveautés MAXIMA",
+      "Nouveautés REFCO": "nav.Nouveautés REFCO",
+      "Outillage": "nav.Outillage",
+      "Outillage à main": "nav.Outillage à main",
+      "Outillage frigoriste": "nav.Outillage frigoriste",
+      "Outillage general": "nav.Outillage general",
+      "Promoções": "nav.Promoções",
+      "Univers de la PAC et ECS": "nav.Univers de la PAC et ECS",
+      "Vérification annuelle": "nav.Vérification annuelle"
+    };
+
+    return translationMap[title] ? t(translationMap[title]) : title;
+  };
 
   return (
     <li className="mt-2 flex text-black dark:text-white" key={item.title}>
@@ -27,7 +55,7 @@ function PathFilterItem({ item }: { item: PathFilterItem }) {
           }
         )}
       >
-        {item.title}
+        {getTranslatedTitle(item.title)}
       </DynamicTag>
     </li>
   );

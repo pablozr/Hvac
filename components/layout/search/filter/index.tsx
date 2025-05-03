@@ -1,3 +1,5 @@
+'use client';
+
 import { SortFilterItem } from 'lib/constants';
 import { Suspense } from 'react';
 import FilterItemDropdown from './dropdown';

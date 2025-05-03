@@ -10,6 +10,13 @@ const collectionFragment = /* GraphQL */ `
       ...seo
     }
     updatedAt
+    metafields(identifiers: [
+      {namespace: "custom", key: "parent_category"}
+    ]) {
+      namespace
+      key
+      value
+    }
   }
   ${seoFragment}
 `;

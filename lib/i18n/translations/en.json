@@ -6,11 +6,13 @@
     "promotions": "Promotions",
     "login": "Login",
     "contact": "Contact",
+    "cart": "Cart",
     "addToCart": "Add to Cart",
     "outOfStock": "Out of Stock",
     "selectOption": "Select an Option",
     "previous": "Previous",
-    "next": "Next"
+    "next": "Next",
+    "loading": "Loading..."
   },
   "nav": {
     "airConditioning": "Air Conditioning",
@@ -47,6 +49,24 @@
     "Promoções da Semana": "Weekly Promotions",
     "Ofertas do Mês": "Monthly Offers",
     "Clearance": "Clearance",
+    "Outillage": "Tools & Equipment",
+    "Liaisons frigorifiques": "Refrigeration Connections",
+    "Univers de la PAC et ECS": "Heat Pump and DHW Universe",
+    "Climatisation, ventilation et déshumidification": "Air Conditioning, Ventilation and Dehumidification",
+    "Appareil de mesure": "Measurement Device",
+    "Outillage frigoriste": "Refrigeration Tools",
+    "Outillage à main": "Hand Tools",
+    "Vérification annuelle": "Annual Verification",
+    "Outillage general": "General Tools",
+    "Nouveautés REFCO": "REFCO New Products",
+    "Nouveautés MAXIMA": "MAXIMA New Products",
+    "Appareils de mesure pour les professionnels": "Measurement devices for professionals",
+    "Outils spécialisés pour les techniciens frigoristes": "Specialized tools for refrigeration technicians",
+    "Outils à main pour l'installation et maintenance": "Hand tools for installation and maintenance",
+    "Équipements pour la vérification annuelle": "Equipment for annual verification",
+    "Outils généraux pour les professionnels": "General tools for professionals",
+    "Nouveaux outils REFCO pour les professionnels": "New REFCO tools for professionals",
+    "Les dernières innovations MAXIMA": "The latest MAXIMA innovations",
     "Conheça nossos produtos mais recentes": "Check out our latest products",
     "Os produtos favoritos dos nossos clientes": "Our customers' favorite products",
     "Produtos com descontos especiais": "Products with special discounts",
@@ -76,7 +96,8 @@
       "description": "Receive energy-saving tips, preventive maintenance advice, and exclusive offers on refrigeration products.",
       "placeholder": "Your best email",
       "button": "Subscribe",
-      "thanks": "Thank you for subscribing! You will soon receive our news."
+      "success": "Thank you for subscribing! You will soon receive our news.",
+      "privacy": "We respect your privacy and will never share your information."
     }
   },
   "benefits": {
@@ -98,10 +119,18 @@
     }
   },
   "categories": {
-    "airConditioning": "Air Conditioning",
-    "commercialRefrigeration": "Commercial Refrigeration",
-    "partsComponents": "Parts & Components",
-    "tools": "Tools & Equipment"
+    "tools": "Tools & Equipment",
+    "refrigerationConnections": "Refrigeration Connections",
+    "heatPumpDHW": "Heat Pump and DHW Universe",
+    "airConditioningVentilation": "Air Conditioning, Ventilation and Dehumidification",
+    "toolsSubcategories": "Tool Categories",
+    "measurementDevice": "Measurement Device",
+    "refrigerationTools": "Refrigeration Tools",
+    "handTools": "Hand Tools",
+    "annualVerification": "Annual Verification",
+    "generalTools": "General Tools",
+    "refcoNews": "REFCO New Products",
+    "maximaNews": "MAXIMA New Products"
   },
   "footer": {
     "about": "Specialists in refrigeration solutions for homes and businesses, offering high energy efficiency products and quality services.",
@@ -162,6 +191,15 @@
       "title": "Professional Installation",
       "subtitle": "Specialized technical team to ensure the best performance of your equipment",
       "button": "Learn More"
+    },
+    "fixed": {
+      "title1": "PARTS",
+      "title2": "SUPPLY",
+      "subtitle": "Simplicity, ease and speed: HVAC Commerce simplifies the daily life of professionals in just a few clicks",
+      "text1": "We find your HVAC spare parts",
+      "text2": "and deliver them to your job site!",
+      "button": "Discover the service",
+      "new": "New"
     }
   },
   "products": {

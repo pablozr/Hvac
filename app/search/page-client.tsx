@@ -10,10 +10,11 @@ import { useCallback, useEffect, useState } from 'react';
 // Filtros disponíveis
 const filters = {
   categories: [
-    { id: 'ar-condicionado', name: 'Ar Condicionado' },
-    { id: 'refrigeracao-comercial', name: 'Refrigeração Comercial' },
-    { id: 'pecas-componentes', name: 'Peças e Componentes' },
-    { id: 'ferramentas-equipamentos', name: 'Ferramentas e Equipamentos' }
+    { id: 'outillage', name: 'Outillage' },
+    { id: 'liaisons-frigorifiques', name: 'Liaisons frigorifiques' },
+    { id: 'univers-pac-ecs', name: 'Univers de la PAC et ECS' },
+    { id: 'climatisation-ventilation', name: 'Climatisation, ventilation et déshumidification' },
+    { id: 'promocoes', name: 'Promoções' }
   ],
   brands: [
     { id: 'daikin', name: 'Daikin' },
@@ -277,9 +278,7 @@ export default function SearchClient({ products, searchValue }: SearchClientProp
                         onChange={(e) => updateFilter('categories', category.id, e.target.checked)}
                       />
                       <label htmlFor={`category-${category.id}`} className="ml-2 text-sm text-[#333333]">
-                        {t(`categories.${category.id === 'ar-condicionado' ? 'airConditioning' :
-                                         category.id === 'refrigeracao-comercial' ? 'commercialRefrigeration' :
-                                         category.id === 'pecas-componentes' ? 'partsComponents' : 'tools'}`)}
+                        {t(`nav.${category.name}`)}
                       </label>
                     </div>
                   ))}
@@ -468,9 +467,7 @@ export default function SearchClient({ products, searchValue }: SearchClientProp
                           onChange={(e) => updateFilter('categories', category.id, e.target.checked)}
                         />
                         <label htmlFor={`mobile-category-${category.id}`} className="ml-2 text-sm text-[#333333]">
-                          {t(`categories.${category.id === 'ar-condicionado' ? 'airConditioning' :
-                                         category.id === 'refrigeracao-comercial' ? 'commercialRefrigeration' :
-                                         category.id === 'pecas-componentes' ? 'partsComponents' : 'tools'}`)}
+                          {t(`nav.${category.name}`)}
                         </label>
                       </div>
                     ))}

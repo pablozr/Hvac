@@ -36,8 +36,15 @@ export type CartItem = {
   };
 };
 
+export type Metafield = {
+  namespace: string;
+  key: string;
+  value: string;
+};
+
 export type Collection = ShopifyCollection & {
   path: string;
+  metafields?: Metafield[];
 };
 
 export type Image = {
@@ -113,6 +120,7 @@ export type ShopifyCollection = {
   description: string;
   seo: SEO;
   updatedAt: string;
+  metafields?: Metafield[];
 };
 
 export type ShopifyProduct = {

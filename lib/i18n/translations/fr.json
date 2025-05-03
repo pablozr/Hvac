@@ -6,11 +6,13 @@
     "promotions": "Promotions",
     "login": "Connexion",
     "contact": "Contact",
+    "cart": "Panier",
     "addToCart": "Ajouter au panier",
     "outOfStock": "Rupture de stock",
     "selectOption": "Sélectionnez une option",
     "previous": "Précédent",
-    "next": "Suivant"
+    "next": "Suivant",
+    "loading": "Chargement..."
   },
   "nav": {
     "airConditioning": "Climatisation",
@@ -47,6 +49,24 @@
     "Promoções da Semana": "Promotions de la Semaine",
     "Ofertas do Mês": "Offres du Mois",
     "Clearance": "Déstockage",
+    "Outillage": "Outillage",
+    "Liaisons frigorifiques": "Liaisons frigorifiques",
+    "Univers de la PAC et ECS": "Univers de la PAC et ECS",
+    "Climatisation, ventilation et déshumidification": "Climatisation, ventilation et déshumidification",
+    "Appareil de mesure": "Appareil de mesure",
+    "Outillage frigoriste": "Outillage frigoriste",
+    "Outillage à main": "Outillage à main",
+    "Vérification annuelle": "Vérification annuelle",
+    "Outillage general": "Outillage général",
+    "Nouveautés REFCO": "Nouveautés REFCO",
+    "Nouveautés MAXIMA": "Nouveautés MAXIMA",
+    "Appareils de mesure pour les professionnels": "Appareils de mesure pour les professionnels",
+    "Outils spécialisés pour les techniciens frigoristes": "Outils spécialisés pour les techniciens frigoristes",
+    "Outils à main pour l'installation et maintenance": "Outils à main pour l'installation et maintenance",
+    "Équipements pour la vérification annuelle": "Équipements pour la vérification annuelle",
+    "Outils généraux pour les professionnels": "Outils généraux pour les professionnels",
+    "Nouveaux outils REFCO pour les professionnels": "Nouveaux outils REFCO pour les professionnels",
+    "Les dernières innovations MAXIMA": "Les dernières innovations MAXIMA",
     "Conheça nossos produtos mais recentes": "Découvrez nos derniers produits",
     "Os produtos favoritos dos nossos clientes": "Les produits préférés de nos clients",
     "Produtos com descontos especiais": "Produits avec remises spéciales",
@@ -76,7 +96,8 @@
       "description": "Recevez des conseils d'économie d'énergie, de maintenance préventive et des offres exclusives sur les produits de réfrigération.",
       "placeholder": "Votre meilleure adresse e-mail",
       "button": "S'inscrire",
-      "thanks": "Merci de vous être inscrit! Vous recevrez bientôt nos actualités."
+      "success": "Merci de vous être inscrit! Vous recevrez bientôt nos actualités.",
+      "privacy": "Nous respectons votre vie privée et ne partagerons jamais vos informations."
     }
   },
   "benefits": {
@@ -98,10 +119,18 @@
     }
   },
   "categories": {
-    "airConditioning": "Climatisation",
-    "commercialRefrigeration": "Réfrigération Commerciale",
-    "partsComponents": "Pièces et Composants",
-    "tools": "Outils et Équipements"
+    "tools": "Outillage",
+    "refrigerationConnections": "Liaisons frigorifiques",
+    "heatPumpDHW": "Univers de la PAC et ECS",
+    "airConditioningVentilation": "Climatisation, ventilation et déshumidification",
+    "toolsSubcategories": "Catégories d'outillage",
+    "measurementDevice": "Appareil de mesure",
+    "refrigerationTools": "Outillage frigoriste",
+    "handTools": "Outillage à main",
+    "annualVerification": "Vérification annuelle",
+    "generalTools": "Outillage",
+    "refcoNews": "Nouveautés REFCO",
+    "maximaNews": "Nouveautés MAXIMA"
   },
   "footer": {
     "about": "Spécialistes des solutions de réfrigération pour les résidences et les entreprises, offrant des produits à haute efficacité énergétique et des services de qualité.",
@@ -162,6 +191,15 @@
       "title": "Installation Professionnelle",
       "subtitle": "Équipe technique spécialisée pour garantir les meilleures performances de votre équipement",
       "button": "En Savoir Plus"
+    },
+    "fixed": {
+      "title1": "APPROVISIONNEMENT",
+      "title2": "PIÈCES DÉTACHÉES",
+      "subtitle": "Simplicité, facilité et rapidité : AIRCCO simplifie le quotidien des pros en quelques clics",
+      "text1": "Nous trouvons votre pièce détachée clim et chauffage",
+      "text2": "et nous la livrons sur votre chantier!",
+      "button": "Découvrir le service",
+      "new": "Nouveauté"
     }
   },
   "products": {

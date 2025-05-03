@@ -66,36 +66,36 @@ export default async function Footer() {
 
           {/* Coluna 3 - Categorias */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-[#0052cc]">Categorias</h3>
+            <h3 className="text-lg font-semibold mb-4 text-[#0052cc]">Catégories</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/search/ar-condicionado" className="text-[#666666] hover:text-[#0052cc]">
-                  Ar Condicionado
+                <Link href="/search/outillage" className="text-[#666666] hover:text-[#0052cc]">
+                  Outillage
                 </Link>
               </li>
               <li>
-                <Link href="/search/refrigeracao-comercial" className="text-[#666666] hover:text-[#0052cc]">
-                  Refrigeração Comercial
+                <Link href="/search/liaisons-frigorifiques" className="text-[#666666] hover:text-[#0052cc]">
+                  Liaisons frigorifiques
                 </Link>
               </li>
               <li>
-                <Link href="/search/pecas-componentes" className="text-[#666666] hover:text-[#0052cc]">
-                  Peças e Componentes
+                <Link href="/search/univers-pac-ecs" className="text-[#666666] hover:text-[#0052cc]">
+                  Univers de la PAC et ECS
                 </Link>
               </li>
               <li>
-                <Link href="/search/ferramentas-equipamentos" className="text-[#666666] hover:text-[#0052cc]">
-                  Ferramentas e Equipamentos
+                <Link href="/search/climatisation-ventilation" className="text-[#666666] hover:text-[#0052cc]">
+                  Climatisation, ventilation et déshumidification
                 </Link>
               </li>
               <li>
                 <Link href="/search/promocoes" className="text-[#666666] hover:text-[#0052cc]">
-                  Promoções
+                  Promotions
                 </Link>
               </li>
               <li>
                 <Link href="/search" className="text-[#666666] hover:text-[#0052cc]">
-                  Ver Todos
+                  Voir Tout
                 </Link>
               </li>
             </ul>

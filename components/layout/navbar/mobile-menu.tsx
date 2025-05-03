@@ -6,10 +6,36 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import { Fragment, Suspense, useEffect, useState } from 'react';
 
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { useI18n } from 'lib/i18n/i18n-context';
 import { Menu } from 'lib/shopify/types';
 import Search, { SearchSkeleton } from './search';
 
+// Definição das categorias principais para o menu mobile
+const mobileNavigationItems = [
+  {
+    title: "Outillage",
+    path: "/search/outillage"
+  },
+  {
+    title: "Liaisons frigorifiques",
+    path: "/search/liaisons-frigorifiques"
+  },
+  {
+    title: "Univers de la PAC et ECS",
+    path: "/search/univers-pac-ecs"
+  },
+  {
+    title: "Climatisation, ventilation et déshumidification",
+    path: "/search/climatisation-ventilation"
+  },
+  {
+    title: "Promoções",
+    path: "/search/promocoes"
+  }
+];
+
 export default function MobileMenu({ menu }: { menu: Menu[] }) {
+  const { t } = useI18n();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
@@ -76,20 +102,18 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                     <Search />
                   </Suspense>
                 </div>
-                {menu.length ? (
-                  <ul className="flex w-full flex-col">
-                    {menu.map((item: Menu) => (
-                      <li
-                        className="py-2 text-xl text-black transition-colors hover:text-neutral-500 dark:text-white"
-                        key={item.title}
-                      >
-                        <Link href={item.path} prefetch={true} onClick={closeMobileMenu}>
-                          {item.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
+                <ul className="flex w-full flex-col">
+                  {mobileNavigationItems.map((item) => (
+                    <li
+                      className="py-2 text-xl text-black transition-colors hover:text-neutral-500 dark:text-white"
+                      key={item.title}
+                    >
+                      <Link href={item.path} prefetch={true} onClick={closeMobileMenu}>
+                        {t(`nav.${item.title}`)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </Dialog.Panel>
           </Transition.Child>

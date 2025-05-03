@@ -14,27 +14,27 @@ interface Category {
 const categories: Category[] = [
   {
     id: 1,
-    title: 'Ar Condicionado',
-    image: '/images/categories/ar-condicionado.jpg',
-    link: '/search/ar-condicionado'
+    title: 'Outillage',
+    image: '/images/categories/outillage.jpg',
+    link: '/search/outillage'
   },
   {
     id: 2,
-    title: 'Refrigeração Comercial',
-    image: '/images/categories/refrigeracao-comercial.jpg',
-    link: '/search/refrigeracao-comercial'
+    title: 'Liaisons frigorifiques',
+    image: 'https://picsum.photos/seed/liaisons/800/600',
+    link: '/search/liaisons-frigorifiques'
   },
   {
     id: 3,
-    title: 'Peças e Componentes',
-    image: '/images/categories/pecas-componentes.jpg',
-    link: '/search/pecas-componentes'
+    title: 'Univers de la PAC et ECS',
+    image: 'https://picsum.photos/seed/pac-ecs/800/600',
+    link: '/search/univers-pac-ecs'
   },
   {
     id: 4,
-    title: 'Ferramentas e Equipamentos',
-    image: '/images/categories/ferramentas.jpg',
-    link: '/search/ferramentas-equipamentos'
+    title: 'Climatisation, ventilation et déshumidification',
+    image: 'https://picsum.photos/seed/climatisation/800/600',
+    link: '/search/climatisation-ventilation'
   }
 ];
 
@@ -64,9 +64,9 @@ export function CategorySection() {
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-4 z-20">
                   <h3 className="text-xl font-semibold text-white">
-                    {t(`categories.${category.id === 1 ? 'airConditioning' :
-                                     category.id === 2 ? 'commercialRefrigeration' :
-                                     category.id === 3 ? 'partsComponents' : 'tools'}`)}
+                    {t(`categories.${category.id === 1 ? 'tools' :
+                                     category.id === 2 ? 'refrigerationConnections' :
+                                     category.id === 3 ? 'heatPumpDHW' : 'airConditioningVentilation'}`)}
                   </h3>
                 </div>
               </div>
